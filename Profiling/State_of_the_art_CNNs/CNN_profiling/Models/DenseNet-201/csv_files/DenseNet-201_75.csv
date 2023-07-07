@@ -1,0 +1,710 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 75, 75, 3]",16875,float32,NaN,NaN,NaN,NaN,"[None, 75, 75, 3]",16875,0
+zero_padding2d_1,ZeroPadding2D,"[None, 75, 75, 3]",1,float32,NaN,NaN,NaN,NaN,"[None, 81, 81, 3]",19683,0
+conv1/conv,Conv2D,"[None, 81, 81, 3]",19683,float32,64,"[7, 7]",linear,False,"[None, 38, 38, 64]",92416,9408
+conv1/bn,BatchNormalization,"[None, 38, 38, 64]",92416,float32,NaN,NaN,NaN,NaN,"[None, 38, 38, 64]",92416,256
+conv1/relu,Activation,"[None, 38, 38, 64]",92416,float32,NaN,NaN,relu,NaN,"[None, 38, 38, 64]",92416,0
+zero_padding2d_2,ZeroPadding2D,"[None, 38, 38, 64]",92416,float32,NaN,NaN,NaN,NaN,"[None, 40, 40, 64]",102400,0
+pool1,MaxPooling2D,"[None, 40, 40, 64]",102400,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 64]",23104,0
+conv2_block1_0_bn,BatchNormalization,"[None, 19, 19, 64]",23104,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 64]",23104,256
+conv2_block1_0_relu,Activation,"[None, 19, 19, 64]",23104,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 64]",23104,0
+conv2_block1_1_conv,Conv2D,"[None, 19, 19, 64]",23104,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,8192
+conv2_block1_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block1_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block1_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block1_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 96]",34656,0
+conv2_block2_0_bn,BatchNormalization,"[None, 19, 19, 96]",34656,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 96]",34656,384
+conv2_block2_0_relu,Activation,"[None, 19, 19, 96]",34656,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 96]",34656,0
+conv2_block2_1_conv,Conv2D,"[None, 19, 19, 96]",34656,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,12288
+conv2_block2_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block2_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block2_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block2_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block3_0_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block3_0_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block3_1_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,16384
+conv2_block3_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block3_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block3_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block3_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 160]",57760,0
+conv2_block4_0_bn,BatchNormalization,"[None, 19, 19, 160]",57760,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 160]",57760,640
+conv2_block4_0_relu,Activation,"[None, 19, 19, 160]",57760,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 160]",57760,0
+conv2_block4_1_conv,Conv2D,"[None, 19, 19, 160]",57760,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,20480
+conv2_block4_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block4_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block4_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block4_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 192]",69312,0
+conv2_block5_0_bn,BatchNormalization,"[None, 19, 19, 192]",69312,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 192]",69312,768
+conv2_block5_0_relu,Activation,"[None, 19, 19, 192]",69312,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 192]",69312,0
+conv2_block5_1_conv,Conv2D,"[None, 19, 19, 192]",69312,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,24576
+conv2_block5_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block5_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block5_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block5_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 224]",80864,0
+conv2_block6_0_bn,BatchNormalization,"[None, 19, 19, 224]",80864,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 224]",80864,896
+conv2_block6_0_relu,Activation,"[None, 19, 19, 224]",80864,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 224]",80864,0
+conv2_block6_1_conv,Conv2D,"[None, 19, 19, 224]",80864,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,28672
+conv2_block6_1_bn,BatchNormalization,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 128]",46208,512
+conv2_block6_1_relu,Activation,"[None, 19, 19, 128]",46208,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 128]",46208,0
+conv2_block6_2_conv,Conv2D,"[None, 19, 19, 128]",46208,float32,32,"[3, 3]",linear,False,"[None, 19, 19, 32]",11552,36864
+conv2_block6_concat,Concatenate,"[None, 19, 19, 32]",11552,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 256]",92416,0
+pool2_bn,BatchNormalization,"[None, 19, 19, 256]",92416,float32,NaN,NaN,NaN,NaN,"[None, 19, 19, 256]",92416,1024
+pool2_relu,Activation,"[None, 19, 19, 256]",92416,float32,NaN,NaN,relu,NaN,"[None, 19, 19, 256]",92416,0
+pool2_conv,Conv2D,"[None, 19, 19, 256]",92416,float32,128,"[1, 1]",linear,False,"[None, 19, 19, 128]",46208,32768
+pool2_pool,AveragePooling2D,"[None, 19, 19, 128]",46208,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block1_0_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block1_0_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block1_1_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,16384
+conv3_block1_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block1_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block1_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block1_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 160]",12960,0
+conv3_block2_0_bn,BatchNormalization,"[None, 9, 9, 160]",12960,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 160]",12960,640
+conv3_block2_0_relu,Activation,"[None, 9, 9, 160]",12960,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 160]",12960,0
+conv3_block2_1_conv,Conv2D,"[None, 9, 9, 160]",12960,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,20480
+conv3_block2_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block2_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block2_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block2_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 192]",15552,0
+conv3_block3_0_bn,BatchNormalization,"[None, 9, 9, 192]",15552,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 192]",15552,768
+conv3_block3_0_relu,Activation,"[None, 9, 9, 192]",15552,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 192]",15552,0
+conv3_block3_1_conv,Conv2D,"[None, 9, 9, 192]",15552,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,24576
+conv3_block3_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block3_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block3_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block3_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 224]",18144,0
+conv3_block4_0_bn,BatchNormalization,"[None, 9, 9, 224]",18144,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 224]",18144,896
+conv3_block4_0_relu,Activation,"[None, 9, 9, 224]",18144,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 224]",18144,0
+conv3_block4_1_conv,Conv2D,"[None, 9, 9, 224]",18144,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,28672
+conv3_block4_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block4_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block4_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block4_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 256]",20736,0
+conv3_block5_0_bn,BatchNormalization,"[None, 9, 9, 256]",20736,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 256]",20736,1024
+conv3_block5_0_relu,Activation,"[None, 9, 9, 256]",20736,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 256]",20736,0
+conv3_block5_1_conv,Conv2D,"[None, 9, 9, 256]",20736,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,32768
+conv3_block5_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block5_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block5_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block5_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 288]",23328,0
+conv3_block6_0_bn,BatchNormalization,"[None, 9, 9, 288]",23328,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 288]",23328,1152
+conv3_block6_0_relu,Activation,"[None, 9, 9, 288]",23328,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 288]",23328,0
+conv3_block6_1_conv,Conv2D,"[None, 9, 9, 288]",23328,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,36864
+conv3_block6_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block6_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block6_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block6_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 320]",25920,0
+conv3_block7_0_bn,BatchNormalization,"[None, 9, 9, 320]",25920,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 320]",25920,1280
+conv3_block7_0_relu,Activation,"[None, 9, 9, 320]",25920,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 320]",25920,0
+conv3_block7_1_conv,Conv2D,"[None, 9, 9, 320]",25920,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,40960
+conv3_block7_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block7_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block7_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block7_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 352]",28512,0
+conv3_block8_0_bn,BatchNormalization,"[None, 9, 9, 352]",28512,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 352]",28512,1408
+conv3_block8_0_relu,Activation,"[None, 9, 9, 352]",28512,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 352]",28512,0
+conv3_block8_1_conv,Conv2D,"[None, 9, 9, 352]",28512,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,45056
+conv3_block8_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block8_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block8_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block8_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 384]",31104,0
+conv3_block9_0_bn,BatchNormalization,"[None, 9, 9, 384]",31104,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 384]",31104,1536
+conv3_block9_0_relu,Activation,"[None, 9, 9, 384]",31104,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 384]",31104,0
+conv3_block9_1_conv,Conv2D,"[None, 9, 9, 384]",31104,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,49152
+conv3_block9_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block9_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block9_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block9_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 416]",33696,0
+conv3_block10_0_bn,BatchNormalization,"[None, 9, 9, 416]",33696,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 416]",33696,1664
+conv3_block10_0_relu,Activation,"[None, 9, 9, 416]",33696,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 416]",33696,0
+conv3_block10_1_conv,Conv2D,"[None, 9, 9, 416]",33696,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,53248
+conv3_block10_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block10_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block10_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block10_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 448]",36288,0
+conv3_block11_0_bn,BatchNormalization,"[None, 9, 9, 448]",36288,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 448]",36288,1792
+conv3_block11_0_relu,Activation,"[None, 9, 9, 448]",36288,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 448]",36288,0
+conv3_block11_1_conv,Conv2D,"[None, 9, 9, 448]",36288,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,57344
+conv3_block11_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block11_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block11_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block11_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 480]",38880,0
+conv3_block12_0_bn,BatchNormalization,"[None, 9, 9, 480]",38880,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 480]",38880,1920
+conv3_block12_0_relu,Activation,"[None, 9, 9, 480]",38880,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 480]",38880,0
+conv3_block12_1_conv,Conv2D,"[None, 9, 9, 480]",38880,float32,128,"[1, 1]",linear,False,"[None, 9, 9, 128]",10368,61440
+conv3_block12_1_bn,BatchNormalization,"[None, 9, 9, 128]",10368,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 128]",10368,512
+conv3_block12_1_relu,Activation,"[None, 9, 9, 128]",10368,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 128]",10368,0
+conv3_block12_2_conv,Conv2D,"[None, 9, 9, 128]",10368,float32,32,"[3, 3]",linear,False,"[None, 9, 9, 32]",2592,36864
+conv3_block12_concat,Concatenate,"[None, 9, 9, 32]",2592,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 512]",41472,0
+pool3_bn,BatchNormalization,"[None, 9, 9, 512]",41472,float32,NaN,NaN,NaN,NaN,"[None, 9, 9, 512]",41472,2048
+pool3_relu,Activation,"[None, 9, 9, 512]",41472,float32,NaN,NaN,relu,NaN,"[None, 9, 9, 512]",41472,0
+pool3_conv,Conv2D,"[None, 9, 9, 512]",41472,float32,256,"[1, 1]",linear,False,"[None, 9, 9, 256]",20736,131072
+pool3_pool,AveragePooling2D,"[None, 9, 9, 256]",20736,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 256]",4096,0
+conv4_block1_0_bn,BatchNormalization,"[None, 4, 4, 256]",4096,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 256]",4096,1024
+conv4_block1_0_relu,Activation,"[None, 4, 4, 256]",4096,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 256]",4096,0
+conv4_block1_1_conv,Conv2D,"[None, 4, 4, 256]",4096,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,32768
+conv4_block1_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block1_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block1_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block1_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 288]",4608,0
+conv4_block2_0_bn,BatchNormalization,"[None, 4, 4, 288]",4608,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 288]",4608,1152
+conv4_block2_0_relu,Activation,"[None, 4, 4, 288]",4608,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 288]",4608,0
+conv4_block2_1_conv,Conv2D,"[None, 4, 4, 288]",4608,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,36864
+conv4_block2_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block2_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block2_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block2_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 320]",5120,0
+conv4_block3_0_bn,BatchNormalization,"[None, 4, 4, 320]",5120,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 320]",5120,1280
+conv4_block3_0_relu,Activation,"[None, 4, 4, 320]",5120,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 320]",5120,0
+conv4_block3_1_conv,Conv2D,"[None, 4, 4, 320]",5120,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,40960
+conv4_block3_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block3_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block3_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block3_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 352]",5632,0
+conv4_block4_0_bn,BatchNormalization,"[None, 4, 4, 352]",5632,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 352]",5632,1408
+conv4_block4_0_relu,Activation,"[None, 4, 4, 352]",5632,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 352]",5632,0
+conv4_block4_1_conv,Conv2D,"[None, 4, 4, 352]",5632,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,45056
+conv4_block4_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block4_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block4_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block4_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 384]",6144,0
+conv4_block5_0_bn,BatchNormalization,"[None, 4, 4, 384]",6144,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 384]",6144,1536
+conv4_block5_0_relu,Activation,"[None, 4, 4, 384]",6144,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 384]",6144,0
+conv4_block5_1_conv,Conv2D,"[None, 4, 4, 384]",6144,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,49152
+conv4_block5_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block5_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block5_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block5_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 416]",6656,0
+conv4_block6_0_bn,BatchNormalization,"[None, 4, 4, 416]",6656,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 416]",6656,1664
+conv4_block6_0_relu,Activation,"[None, 4, 4, 416]",6656,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 416]",6656,0
+conv4_block6_1_conv,Conv2D,"[None, 4, 4, 416]",6656,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,53248
+conv4_block6_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block6_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block6_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block6_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 448]",7168,0
+conv4_block7_0_bn,BatchNormalization,"[None, 4, 4, 448]",7168,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 448]",7168,1792
+conv4_block7_0_relu,Activation,"[None, 4, 4, 448]",7168,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 448]",7168,0
+conv4_block7_1_conv,Conv2D,"[None, 4, 4, 448]",7168,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,57344
+conv4_block7_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block7_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block7_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block7_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 480]",7680,0
+conv4_block8_0_bn,BatchNormalization,"[None, 4, 4, 480]",7680,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 480]",7680,1920
+conv4_block8_0_relu,Activation,"[None, 4, 4, 480]",7680,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 480]",7680,0
+conv4_block8_1_conv,Conv2D,"[None, 4, 4, 480]",7680,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,61440
+conv4_block8_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block8_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block8_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block8_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 512]",8192,0
+conv4_block9_0_bn,BatchNormalization,"[None, 4, 4, 512]",8192,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 512]",8192,2048
+conv4_block9_0_relu,Activation,"[None, 4, 4, 512]",8192,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 512]",8192,0
+conv4_block9_1_conv,Conv2D,"[None, 4, 4, 512]",8192,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,65536
+conv4_block9_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block9_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block9_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block9_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 544]",8704,0
+conv4_block10_0_bn,BatchNormalization,"[None, 4, 4, 544]",8704,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 544]",8704,2176
+conv4_block10_0_relu,Activation,"[None, 4, 4, 544]",8704,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 544]",8704,0
+conv4_block10_1_conv,Conv2D,"[None, 4, 4, 544]",8704,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,69632
+conv4_block10_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block10_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block10_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block10_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 576]",9216,0
+conv4_block11_0_bn,BatchNormalization,"[None, 4, 4, 576]",9216,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 576]",9216,2304
+conv4_block11_0_relu,Activation,"[None, 4, 4, 576]",9216,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 576]",9216,0
+conv4_block11_1_conv,Conv2D,"[None, 4, 4, 576]",9216,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,73728
+conv4_block11_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block11_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block11_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block11_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 608]",9728,0
+conv4_block12_0_bn,BatchNormalization,"[None, 4, 4, 608]",9728,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 608]",9728,2432
+conv4_block12_0_relu,Activation,"[None, 4, 4, 608]",9728,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 608]",9728,0
+conv4_block12_1_conv,Conv2D,"[None, 4, 4, 608]",9728,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,77824
+conv4_block12_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block12_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block12_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block12_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 640]",10240,0
+conv4_block13_0_bn,BatchNormalization,"[None, 4, 4, 640]",10240,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 640]",10240,2560
+conv4_block13_0_relu,Activation,"[None, 4, 4, 640]",10240,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 640]",10240,0
+conv4_block13_1_conv,Conv2D,"[None, 4, 4, 640]",10240,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,81920
+conv4_block13_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block13_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block13_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block13_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 672]",10752,0
+conv4_block14_0_bn,BatchNormalization,"[None, 4, 4, 672]",10752,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 672]",10752,2688
+conv4_block14_0_relu,Activation,"[None, 4, 4, 672]",10752,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 672]",10752,0
+conv4_block14_1_conv,Conv2D,"[None, 4, 4, 672]",10752,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,86016
+conv4_block14_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block14_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block14_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block14_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 704]",11264,0
+conv4_block15_0_bn,BatchNormalization,"[None, 4, 4, 704]",11264,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 704]",11264,2816
+conv4_block15_0_relu,Activation,"[None, 4, 4, 704]",11264,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 704]",11264,0
+conv4_block15_1_conv,Conv2D,"[None, 4, 4, 704]",11264,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,90112
+conv4_block15_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block15_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block15_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block15_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 736]",11776,0
+conv4_block16_0_bn,BatchNormalization,"[None, 4, 4, 736]",11776,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 736]",11776,2944
+conv4_block16_0_relu,Activation,"[None, 4, 4, 736]",11776,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 736]",11776,0
+conv4_block16_1_conv,Conv2D,"[None, 4, 4, 736]",11776,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,94208
+conv4_block16_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block16_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block16_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block16_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 768]",12288,0
+conv4_block17_0_bn,BatchNormalization,"[None, 4, 4, 768]",12288,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 768]",12288,3072
+conv4_block17_0_relu,Activation,"[None, 4, 4, 768]",12288,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 768]",12288,0
+conv4_block17_1_conv,Conv2D,"[None, 4, 4, 768]",12288,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,98304
+conv4_block17_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block17_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block17_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block17_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 800]",12800,0
+conv4_block18_0_bn,BatchNormalization,"[None, 4, 4, 800]",12800,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 800]",12800,3200
+conv4_block18_0_relu,Activation,"[None, 4, 4, 800]",12800,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 800]",12800,0
+conv4_block18_1_conv,Conv2D,"[None, 4, 4, 800]",12800,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,102400
+conv4_block18_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block18_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block18_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block18_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 832]",13312,0
+conv4_block19_0_bn,BatchNormalization,"[None, 4, 4, 832]",13312,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 832]",13312,3328
+conv4_block19_0_relu,Activation,"[None, 4, 4, 832]",13312,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 832]",13312,0
+conv4_block19_1_conv,Conv2D,"[None, 4, 4, 832]",13312,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,106496
+conv4_block19_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block19_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block19_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block19_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 864]",13824,0
+conv4_block20_0_bn,BatchNormalization,"[None, 4, 4, 864]",13824,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 864]",13824,3456
+conv4_block20_0_relu,Activation,"[None, 4, 4, 864]",13824,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 864]",13824,0
+conv4_block20_1_conv,Conv2D,"[None, 4, 4, 864]",13824,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,110592
+conv4_block20_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block20_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block20_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block20_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 896]",14336,0
+conv4_block21_0_bn,BatchNormalization,"[None, 4, 4, 896]",14336,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 896]",14336,3584
+conv4_block21_0_relu,Activation,"[None, 4, 4, 896]",14336,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 896]",14336,0
+conv4_block21_1_conv,Conv2D,"[None, 4, 4, 896]",14336,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,114688
+conv4_block21_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block21_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block21_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block21_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 928]",14848,0
+conv4_block22_0_bn,BatchNormalization,"[None, 4, 4, 928]",14848,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 928]",14848,3712
+conv4_block22_0_relu,Activation,"[None, 4, 4, 928]",14848,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 928]",14848,0
+conv4_block22_1_conv,Conv2D,"[None, 4, 4, 928]",14848,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,118784
+conv4_block22_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block22_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block22_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block22_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 960]",15360,0
+conv4_block23_0_bn,BatchNormalization,"[None, 4, 4, 960]",15360,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 960]",15360,3840
+conv4_block23_0_relu,Activation,"[None, 4, 4, 960]",15360,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 960]",15360,0
+conv4_block23_1_conv,Conv2D,"[None, 4, 4, 960]",15360,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,122880
+conv4_block23_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block23_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block23_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block23_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 992]",15872,0
+conv4_block24_0_bn,BatchNormalization,"[None, 4, 4, 992]",15872,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 992]",15872,3968
+conv4_block24_0_relu,Activation,"[None, 4, 4, 992]",15872,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 992]",15872,0
+conv4_block24_1_conv,Conv2D,"[None, 4, 4, 992]",15872,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,126976
+conv4_block24_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block24_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block24_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block24_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1024]",16384,0
+conv4_block25_0_bn,BatchNormalization,"[None, 4, 4, 1024]",16384,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1024]",16384,4096
+conv4_block25_0_relu,Activation,"[None, 4, 4, 1024]",16384,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1024]",16384,0
+conv4_block25_1_conv,Conv2D,"[None, 4, 4, 1024]",16384,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,131072
+conv4_block25_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block25_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block25_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block25_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1056]",16896,0
+conv4_block26_0_bn,BatchNormalization,"[None, 4, 4, 1056]",16896,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1056]",16896,4224
+conv4_block26_0_relu,Activation,"[None, 4, 4, 1056]",16896,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1056]",16896,0
+conv4_block26_1_conv,Conv2D,"[None, 4, 4, 1056]",16896,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,135168
+conv4_block26_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block26_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block26_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block26_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1088]",17408,0
+conv4_block27_0_bn,BatchNormalization,"[None, 4, 4, 1088]",17408,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1088]",17408,4352
+conv4_block27_0_relu,Activation,"[None, 4, 4, 1088]",17408,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1088]",17408,0
+conv4_block27_1_conv,Conv2D,"[None, 4, 4, 1088]",17408,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,139264
+conv4_block27_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block27_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block27_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block27_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1120]",17920,0
+conv4_block28_0_bn,BatchNormalization,"[None, 4, 4, 1120]",17920,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1120]",17920,4480
+conv4_block28_0_relu,Activation,"[None, 4, 4, 1120]",17920,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1120]",17920,0
+conv4_block28_1_conv,Conv2D,"[None, 4, 4, 1120]",17920,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,143360
+conv4_block28_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block28_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block28_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block28_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1152]",18432,0
+conv4_block29_0_bn,BatchNormalization,"[None, 4, 4, 1152]",18432,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1152]",18432,4608
+conv4_block29_0_relu,Activation,"[None, 4, 4, 1152]",18432,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1152]",18432,0
+conv4_block29_1_conv,Conv2D,"[None, 4, 4, 1152]",18432,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,147456
+conv4_block29_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block29_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block29_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block29_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1184]",18944,0
+conv4_block30_0_bn,BatchNormalization,"[None, 4, 4, 1184]",18944,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1184]",18944,4736
+conv4_block30_0_relu,Activation,"[None, 4, 4, 1184]",18944,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1184]",18944,0
+conv4_block30_1_conv,Conv2D,"[None, 4, 4, 1184]",18944,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,151552
+conv4_block30_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block30_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block30_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block30_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1216]",19456,0
+conv4_block31_0_bn,BatchNormalization,"[None, 4, 4, 1216]",19456,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1216]",19456,4864
+conv4_block31_0_relu,Activation,"[None, 4, 4, 1216]",19456,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1216]",19456,0
+conv4_block31_1_conv,Conv2D,"[None, 4, 4, 1216]",19456,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,155648
+conv4_block31_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block31_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block31_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block31_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1248]",19968,0
+conv4_block32_0_bn,BatchNormalization,"[None, 4, 4, 1248]",19968,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1248]",19968,4992
+conv4_block32_0_relu,Activation,"[None, 4, 4, 1248]",19968,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1248]",19968,0
+conv4_block32_1_conv,Conv2D,"[None, 4, 4, 1248]",19968,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,159744
+conv4_block32_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block32_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block32_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block32_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1280]",20480,0
+conv4_block33_0_bn,BatchNormalization,"[None, 4, 4, 1280]",20480,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1280]",20480,5120
+conv4_block33_0_relu,Activation,"[None, 4, 4, 1280]",20480,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1280]",20480,0
+conv4_block33_1_conv,Conv2D,"[None, 4, 4, 1280]",20480,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,163840
+conv4_block33_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block33_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block33_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block33_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1312]",20992,0
+conv4_block34_0_bn,BatchNormalization,"[None, 4, 4, 1312]",20992,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1312]",20992,5248
+conv4_block34_0_relu,Activation,"[None, 4, 4, 1312]",20992,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1312]",20992,0
+conv4_block34_1_conv,Conv2D,"[None, 4, 4, 1312]",20992,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,167936
+conv4_block34_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block34_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block34_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block34_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1344]",21504,0
+conv4_block35_0_bn,BatchNormalization,"[None, 4, 4, 1344]",21504,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1344]",21504,5376
+conv4_block35_0_relu,Activation,"[None, 4, 4, 1344]",21504,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1344]",21504,0
+conv4_block35_1_conv,Conv2D,"[None, 4, 4, 1344]",21504,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,172032
+conv4_block35_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block35_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block35_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block35_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1376]",22016,0
+conv4_block36_0_bn,BatchNormalization,"[None, 4, 4, 1376]",22016,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1376]",22016,5504
+conv4_block36_0_relu,Activation,"[None, 4, 4, 1376]",22016,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1376]",22016,0
+conv4_block36_1_conv,Conv2D,"[None, 4, 4, 1376]",22016,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,176128
+conv4_block36_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block36_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block36_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block36_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1408]",22528,0
+conv4_block37_0_bn,BatchNormalization,"[None, 4, 4, 1408]",22528,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1408]",22528,5632
+conv4_block37_0_relu,Activation,"[None, 4, 4, 1408]",22528,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1408]",22528,0
+conv4_block37_1_conv,Conv2D,"[None, 4, 4, 1408]",22528,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,180224
+conv4_block37_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block37_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block37_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block37_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1440]",23040,0
+conv4_block38_0_bn,BatchNormalization,"[None, 4, 4, 1440]",23040,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1440]",23040,5760
+conv4_block38_0_relu,Activation,"[None, 4, 4, 1440]",23040,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1440]",23040,0
+conv4_block38_1_conv,Conv2D,"[None, 4, 4, 1440]",23040,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,184320
+conv4_block38_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block38_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block38_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block38_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1472]",23552,0
+conv4_block39_0_bn,BatchNormalization,"[None, 4, 4, 1472]",23552,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1472]",23552,5888
+conv4_block39_0_relu,Activation,"[None, 4, 4, 1472]",23552,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1472]",23552,0
+conv4_block39_1_conv,Conv2D,"[None, 4, 4, 1472]",23552,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,188416
+conv4_block39_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block39_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block39_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block39_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1504]",24064,0
+conv4_block40_0_bn,BatchNormalization,"[None, 4, 4, 1504]",24064,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1504]",24064,6016
+conv4_block40_0_relu,Activation,"[None, 4, 4, 1504]",24064,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1504]",24064,0
+conv4_block40_1_conv,Conv2D,"[None, 4, 4, 1504]",24064,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,192512
+conv4_block40_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block40_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block40_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block40_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1536]",24576,0
+conv4_block41_0_bn,BatchNormalization,"[None, 4, 4, 1536]",24576,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1536]",24576,6144
+conv4_block41_0_relu,Activation,"[None, 4, 4, 1536]",24576,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1536]",24576,0
+conv4_block41_1_conv,Conv2D,"[None, 4, 4, 1536]",24576,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,196608
+conv4_block41_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block41_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block41_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block41_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1568]",25088,0
+conv4_block42_0_bn,BatchNormalization,"[None, 4, 4, 1568]",25088,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1568]",25088,6272
+conv4_block42_0_relu,Activation,"[None, 4, 4, 1568]",25088,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1568]",25088,0
+conv4_block42_1_conv,Conv2D,"[None, 4, 4, 1568]",25088,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,200704
+conv4_block42_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block42_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block42_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block42_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1600]",25600,0
+conv4_block43_0_bn,BatchNormalization,"[None, 4, 4, 1600]",25600,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1600]",25600,6400
+conv4_block43_0_relu,Activation,"[None, 4, 4, 1600]",25600,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1600]",25600,0
+conv4_block43_1_conv,Conv2D,"[None, 4, 4, 1600]",25600,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,204800
+conv4_block43_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block43_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block43_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block43_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1632]",26112,0
+conv4_block44_0_bn,BatchNormalization,"[None, 4, 4, 1632]",26112,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1632]",26112,6528
+conv4_block44_0_relu,Activation,"[None, 4, 4, 1632]",26112,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1632]",26112,0
+conv4_block44_1_conv,Conv2D,"[None, 4, 4, 1632]",26112,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,208896
+conv4_block44_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block44_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block44_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block44_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1664]",26624,0
+conv4_block45_0_bn,BatchNormalization,"[None, 4, 4, 1664]",26624,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1664]",26624,6656
+conv4_block45_0_relu,Activation,"[None, 4, 4, 1664]",26624,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1664]",26624,0
+conv4_block45_1_conv,Conv2D,"[None, 4, 4, 1664]",26624,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,212992
+conv4_block45_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block45_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block45_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block45_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1696]",27136,0
+conv4_block46_0_bn,BatchNormalization,"[None, 4, 4, 1696]",27136,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1696]",27136,6784
+conv4_block46_0_relu,Activation,"[None, 4, 4, 1696]",27136,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1696]",27136,0
+conv4_block46_1_conv,Conv2D,"[None, 4, 4, 1696]",27136,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,217088
+conv4_block46_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block46_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block46_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block46_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1728]",27648,0
+conv4_block47_0_bn,BatchNormalization,"[None, 4, 4, 1728]",27648,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1728]",27648,6912
+conv4_block47_0_relu,Activation,"[None, 4, 4, 1728]",27648,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1728]",27648,0
+conv4_block47_1_conv,Conv2D,"[None, 4, 4, 1728]",27648,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,221184
+conv4_block47_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block47_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block47_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block47_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1760]",28160,0
+conv4_block48_0_bn,BatchNormalization,"[None, 4, 4, 1760]",28160,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1760]",28160,7040
+conv4_block48_0_relu,Activation,"[None, 4, 4, 1760]",28160,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1760]",28160,0
+conv4_block48_1_conv,Conv2D,"[None, 4, 4, 1760]",28160,float32,128,"[1, 1]",linear,False,"[None, 4, 4, 128]",2048,225280
+conv4_block48_1_bn,BatchNormalization,"[None, 4, 4, 128]",2048,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 128]",2048,512
+conv4_block48_1_relu,Activation,"[None, 4, 4, 128]",2048,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 128]",2048,0
+conv4_block48_2_conv,Conv2D,"[None, 4, 4, 128]",2048,float32,32,"[3, 3]",linear,False,"[None, 4, 4, 32]",512,36864
+conv4_block48_concat,Concatenate,"[None, 4, 4, 32]",512,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1792]",28672,0
+pool4_bn,BatchNormalization,"[None, 4, 4, 1792]",28672,float32,NaN,NaN,NaN,NaN,"[None, 4, 4, 1792]",28672,7168
+pool4_relu,Activation,"[None, 4, 4, 1792]",28672,float32,NaN,NaN,relu,NaN,"[None, 4, 4, 1792]",28672,0
+pool4_conv,Conv2D,"[None, 4, 4, 1792]",28672,float32,896,"[1, 1]",linear,False,"[None, 4, 4, 896]",14336,1605632
+pool4_pool,AveragePooling2D,"[None, 4, 4, 896]",14336,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 896]",3584,0
+conv5_block1_0_bn,BatchNormalization,"[None, 2, 2, 896]",3584,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 896]",3584,3584
+conv5_block1_0_relu,Activation,"[None, 2, 2, 896]",3584,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 896]",3584,0
+conv5_block1_1_conv,Conv2D,"[None, 2, 2, 896]",3584,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,114688
+conv5_block1_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block1_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block1_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block1_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 928]",3712,0
+conv5_block2_0_bn,BatchNormalization,"[None, 2, 2, 928]",3712,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 928]",3712,3712
+conv5_block2_0_relu,Activation,"[None, 2, 2, 928]",3712,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 928]",3712,0
+conv5_block2_1_conv,Conv2D,"[None, 2, 2, 928]",3712,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,118784
+conv5_block2_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block2_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block2_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block2_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 960]",3840,0
+conv5_block3_0_bn,BatchNormalization,"[None, 2, 2, 960]",3840,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 960]",3840,3840
+conv5_block3_0_relu,Activation,"[None, 2, 2, 960]",3840,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 960]",3840,0
+conv5_block3_1_conv,Conv2D,"[None, 2, 2, 960]",3840,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,122880
+conv5_block3_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block3_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block3_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block3_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 992]",3968,0
+conv5_block4_0_bn,BatchNormalization,"[None, 2, 2, 992]",3968,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 992]",3968,3968
+conv5_block4_0_relu,Activation,"[None, 2, 2, 992]",3968,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 992]",3968,0
+conv5_block4_1_conv,Conv2D,"[None, 2, 2, 992]",3968,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,126976
+conv5_block4_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block4_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block4_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block4_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1024]",4096,0
+conv5_block5_0_bn,BatchNormalization,"[None, 2, 2, 1024]",4096,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1024]",4096,4096
+conv5_block5_0_relu,Activation,"[None, 2, 2, 1024]",4096,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1024]",4096,0
+conv5_block5_1_conv,Conv2D,"[None, 2, 2, 1024]",4096,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,131072
+conv5_block5_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block5_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block5_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block5_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1056]",4224,0
+conv5_block6_0_bn,BatchNormalization,"[None, 2, 2, 1056]",4224,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1056]",4224,4224
+conv5_block6_0_relu,Activation,"[None, 2, 2, 1056]",4224,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1056]",4224,0
+conv5_block6_1_conv,Conv2D,"[None, 2, 2, 1056]",4224,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,135168
+conv5_block6_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block6_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block6_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block6_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1088]",4352,0
+conv5_block7_0_bn,BatchNormalization,"[None, 2, 2, 1088]",4352,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1088]",4352,4352
+conv5_block7_0_relu,Activation,"[None, 2, 2, 1088]",4352,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1088]",4352,0
+conv5_block7_1_conv,Conv2D,"[None, 2, 2, 1088]",4352,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,139264
+conv5_block7_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block7_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block7_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block7_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1120]",4480,0
+conv5_block8_0_bn,BatchNormalization,"[None, 2, 2, 1120]",4480,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1120]",4480,4480
+conv5_block8_0_relu,Activation,"[None, 2, 2, 1120]",4480,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1120]",4480,0
+conv5_block8_1_conv,Conv2D,"[None, 2, 2, 1120]",4480,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,143360
+conv5_block8_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block8_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block8_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block8_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1152]",4608,0
+conv5_block9_0_bn,BatchNormalization,"[None, 2, 2, 1152]",4608,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1152]",4608,4608
+conv5_block9_0_relu,Activation,"[None, 2, 2, 1152]",4608,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1152]",4608,0
+conv5_block9_1_conv,Conv2D,"[None, 2, 2, 1152]",4608,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,147456
+conv5_block9_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block9_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block9_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block9_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1184]",4736,0
+conv5_block10_0_bn,BatchNormalization,"[None, 2, 2, 1184]",4736,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1184]",4736,4736
+conv5_block10_0_relu,Activation,"[None, 2, 2, 1184]",4736,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1184]",4736,0
+conv5_block10_1_conv,Conv2D,"[None, 2, 2, 1184]",4736,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,151552
+conv5_block10_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block10_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block10_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block10_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1216]",4864,0
+conv5_block11_0_bn,BatchNormalization,"[None, 2, 2, 1216]",4864,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1216]",4864,4864
+conv5_block11_0_relu,Activation,"[None, 2, 2, 1216]",4864,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1216]",4864,0
+conv5_block11_1_conv,Conv2D,"[None, 2, 2, 1216]",4864,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,155648
+conv5_block11_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block11_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block11_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block11_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1248]",4992,0
+conv5_block12_0_bn,BatchNormalization,"[None, 2, 2, 1248]",4992,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1248]",4992,4992
+conv5_block12_0_relu,Activation,"[None, 2, 2, 1248]",4992,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1248]",4992,0
+conv5_block12_1_conv,Conv2D,"[None, 2, 2, 1248]",4992,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,159744
+conv5_block12_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block12_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block12_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block12_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1280]",5120,0
+conv5_block13_0_bn,BatchNormalization,"[None, 2, 2, 1280]",5120,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1280]",5120,5120
+conv5_block13_0_relu,Activation,"[None, 2, 2, 1280]",5120,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1280]",5120,0
+conv5_block13_1_conv,Conv2D,"[None, 2, 2, 1280]",5120,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,163840
+conv5_block13_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block13_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block13_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block13_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1312]",5248,0
+conv5_block14_0_bn,BatchNormalization,"[None, 2, 2, 1312]",5248,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1312]",5248,5248
+conv5_block14_0_relu,Activation,"[None, 2, 2, 1312]",5248,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1312]",5248,0
+conv5_block14_1_conv,Conv2D,"[None, 2, 2, 1312]",5248,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,167936
+conv5_block14_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block14_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block14_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block14_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1344]",5376,0
+conv5_block15_0_bn,BatchNormalization,"[None, 2, 2, 1344]",5376,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1344]",5376,5376
+conv5_block15_0_relu,Activation,"[None, 2, 2, 1344]",5376,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1344]",5376,0
+conv5_block15_1_conv,Conv2D,"[None, 2, 2, 1344]",5376,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,172032
+conv5_block15_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block15_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block15_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block15_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1376]",5504,0
+conv5_block16_0_bn,BatchNormalization,"[None, 2, 2, 1376]",5504,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1376]",5504,5504
+conv5_block16_0_relu,Activation,"[None, 2, 2, 1376]",5504,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1376]",5504,0
+conv5_block16_1_conv,Conv2D,"[None, 2, 2, 1376]",5504,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,176128
+conv5_block16_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block16_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block16_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block16_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1408]",5632,0
+conv5_block17_0_bn,BatchNormalization,"[None, 2, 2, 1408]",5632,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1408]",5632,5632
+conv5_block17_0_relu,Activation,"[None, 2, 2, 1408]",5632,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1408]",5632,0
+conv5_block17_1_conv,Conv2D,"[None, 2, 2, 1408]",5632,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,180224
+conv5_block17_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block17_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block17_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block17_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1440]",5760,0
+conv5_block18_0_bn,BatchNormalization,"[None, 2, 2, 1440]",5760,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1440]",5760,5760
+conv5_block18_0_relu,Activation,"[None, 2, 2, 1440]",5760,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1440]",5760,0
+conv5_block18_1_conv,Conv2D,"[None, 2, 2, 1440]",5760,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,184320
+conv5_block18_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block18_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block18_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block18_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1472]",5888,0
+conv5_block19_0_bn,BatchNormalization,"[None, 2, 2, 1472]",5888,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1472]",5888,5888
+conv5_block19_0_relu,Activation,"[None, 2, 2, 1472]",5888,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1472]",5888,0
+conv5_block19_1_conv,Conv2D,"[None, 2, 2, 1472]",5888,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,188416
+conv5_block19_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block19_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block19_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block19_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1504]",6016,0
+conv5_block20_0_bn,BatchNormalization,"[None, 2, 2, 1504]",6016,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1504]",6016,6016
+conv5_block20_0_relu,Activation,"[None, 2, 2, 1504]",6016,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1504]",6016,0
+conv5_block20_1_conv,Conv2D,"[None, 2, 2, 1504]",6016,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,192512
+conv5_block20_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block20_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block20_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block20_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1536]",6144,0
+conv5_block21_0_bn,BatchNormalization,"[None, 2, 2, 1536]",6144,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1536]",6144,6144
+conv5_block21_0_relu,Activation,"[None, 2, 2, 1536]",6144,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1536]",6144,0
+conv5_block21_1_conv,Conv2D,"[None, 2, 2, 1536]",6144,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,196608
+conv5_block21_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block21_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block21_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block21_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1568]",6272,0
+conv5_block22_0_bn,BatchNormalization,"[None, 2, 2, 1568]",6272,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1568]",6272,6272
+conv5_block22_0_relu,Activation,"[None, 2, 2, 1568]",6272,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1568]",6272,0
+conv5_block22_1_conv,Conv2D,"[None, 2, 2, 1568]",6272,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,200704
+conv5_block22_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block22_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block22_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block22_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1600]",6400,0
+conv5_block23_0_bn,BatchNormalization,"[None, 2, 2, 1600]",6400,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1600]",6400,6400
+conv5_block23_0_relu,Activation,"[None, 2, 2, 1600]",6400,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1600]",6400,0
+conv5_block23_1_conv,Conv2D,"[None, 2, 2, 1600]",6400,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,204800
+conv5_block23_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block23_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block23_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block23_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1632]",6528,0
+conv5_block24_0_bn,BatchNormalization,"[None, 2, 2, 1632]",6528,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1632]",6528,6528
+conv5_block24_0_relu,Activation,"[None, 2, 2, 1632]",6528,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1632]",6528,0
+conv5_block24_1_conv,Conv2D,"[None, 2, 2, 1632]",6528,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,208896
+conv5_block24_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block24_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block24_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block24_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1664]",6656,0
+conv5_block25_0_bn,BatchNormalization,"[None, 2, 2, 1664]",6656,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1664]",6656,6656
+conv5_block25_0_relu,Activation,"[None, 2, 2, 1664]",6656,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1664]",6656,0
+conv5_block25_1_conv,Conv2D,"[None, 2, 2, 1664]",6656,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,212992
+conv5_block25_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block25_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block25_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block25_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1696]",6784,0
+conv5_block26_0_bn,BatchNormalization,"[None, 2, 2, 1696]",6784,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1696]",6784,6784
+conv5_block26_0_relu,Activation,"[None, 2, 2, 1696]",6784,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1696]",6784,0
+conv5_block26_1_conv,Conv2D,"[None, 2, 2, 1696]",6784,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,217088
+conv5_block26_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block26_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block26_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block26_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1728]",6912,0
+conv5_block27_0_bn,BatchNormalization,"[None, 2, 2, 1728]",6912,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1728]",6912,6912
+conv5_block27_0_relu,Activation,"[None, 2, 2, 1728]",6912,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1728]",6912,0
+conv5_block27_1_conv,Conv2D,"[None, 2, 2, 1728]",6912,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,221184
+conv5_block27_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block27_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block27_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block27_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1760]",7040,0
+conv5_block28_0_bn,BatchNormalization,"[None, 2, 2, 1760]",7040,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1760]",7040,7040
+conv5_block28_0_relu,Activation,"[None, 2, 2, 1760]",7040,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1760]",7040,0
+conv5_block28_1_conv,Conv2D,"[None, 2, 2, 1760]",7040,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,225280
+conv5_block28_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block28_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block28_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block28_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1792]",7168,0
+conv5_block29_0_bn,BatchNormalization,"[None, 2, 2, 1792]",7168,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1792]",7168,7168
+conv5_block29_0_relu,Activation,"[None, 2, 2, 1792]",7168,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1792]",7168,0
+conv5_block29_1_conv,Conv2D,"[None, 2, 2, 1792]",7168,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,229376
+conv5_block29_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block29_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block29_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block29_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1824]",7296,0
+conv5_block30_0_bn,BatchNormalization,"[None, 2, 2, 1824]",7296,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1824]",7296,7296
+conv5_block30_0_relu,Activation,"[None, 2, 2, 1824]",7296,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1824]",7296,0
+conv5_block30_1_conv,Conv2D,"[None, 2, 2, 1824]",7296,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,233472
+conv5_block30_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block30_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block30_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block30_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1856]",7424,0
+conv5_block31_0_bn,BatchNormalization,"[None, 2, 2, 1856]",7424,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1856]",7424,7424
+conv5_block31_0_relu,Activation,"[None, 2, 2, 1856]",7424,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1856]",7424,0
+conv5_block31_1_conv,Conv2D,"[None, 2, 2, 1856]",7424,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,237568
+conv5_block31_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block31_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block31_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block31_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1888]",7552,0
+conv5_block32_0_bn,BatchNormalization,"[None, 2, 2, 1888]",7552,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1888]",7552,7552
+conv5_block32_0_relu,Activation,"[None, 2, 2, 1888]",7552,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1888]",7552,0
+conv5_block32_1_conv,Conv2D,"[None, 2, 2, 1888]",7552,float32,128,"[1, 1]",linear,False,"[None, 2, 2, 128]",512,241664
+conv5_block32_1_bn,BatchNormalization,"[None, 2, 2, 128]",512,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 128]",512,512
+conv5_block32_1_relu,Activation,"[None, 2, 2, 128]",512,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 128]",512,0
+conv5_block32_2_conv,Conv2D,"[None, 2, 2, 128]",512,float32,32,"[3, 3]",linear,False,"[None, 2, 2, 32]",128,36864
+conv5_block32_concat,Concatenate,"[None, 2, 2, 32]",128,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1920]",7680,0
+bn,BatchNormalization,"[None, 2, 2, 1920]",7680,float32,NaN,NaN,NaN,NaN,"[None, 2, 2, 1920]",7680,7680
+relu,Activation,"[None, 2, 2, 1920]",7680,float32,NaN,NaN,relu,NaN,"[None, 2, 2, 1920]",7680,0
+avg_pool,GlobalAveragePooling2D,"[None, 2, 2, 1920]",7680,float32,NaN,NaN,NaN,NaN,"[None, 1920]",1920,0
+fc1000,Dense,"[None, 1920]",1920,float32,NaN,NaN,softmax,True,"[None, 1000]",1000,1921000

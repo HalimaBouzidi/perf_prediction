@@ -1,0 +1,15 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 56, 56, 3]",9408,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 3]",9408,0
+b_conv1,Conv2D,"[None, 56, 56, 3]",1,float32,160,"[2, 2]",relu,True,"[None, 56, 56, 160]",501760,2080
+bn_conv1,BatchNormalization,"[None, 56, 56, 160]",501760,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 160]",501760,640
+b_conv2,Conv2D,"[None, 56, 56, 160]",501760,float32,40,"[1, 1]",relu,True,"[None, 56, 56, 40]",125440,6440
+b_conv3,Conv2D,"[None, 56, 56, 40]",125440,float32,40,"[3, 3]",relu,True,"[None, 56, 56, 40]",125440,14440
+b_conv4,Conv2D,"[None, 56, 56, 40]",125440,float32,450,"[2, 2]",relu,True,"[None, 56, 56, 450]",1411200,72450
+bn_conv4,BatchNormalization,"[None, 56, 56, 450]",1411200,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 450]",1411200,1800
+b_conv5,Conv2D,"[None, 56, 56, 450]",1411200,float32,480,"[2, 2]",relu,True,"[None, 56, 56, 480]",1505280,864480
+bn_conv5,BatchNormalization,"[None, 56, 56, 480]",1505280,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 480]",1505280,1920
+b_conv6,Conv2D,"[None, 56, 56, 480]",1505280,float32,64,"[5, 5]",relu,True,"[None, 56, 56, 64]",200704,768064
+bn_conv6,BatchNormalization,"[None, 56, 56, 64]",200704,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 64]",200704,256
+flatten,Flatten,"[None, 56, 56, 64]",200704,float32,NaN,NaN,NaN,NaN,"[None, 200704]",200704,0
+fc,Dense,"[None, 200704]",200704,float32,NaN,NaN,linear,True,"[None, 200]",200,40141000
+softmax,Activation,"[None, 200]",200,float32,NaN,NaN,softmax,NaN,"[None, 200]",200,0

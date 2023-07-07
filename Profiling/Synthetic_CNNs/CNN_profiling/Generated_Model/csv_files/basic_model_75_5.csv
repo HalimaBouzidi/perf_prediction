@@ -1,0 +1,13 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 75, 75, 3]",16875,float32,NaN,NaN,NaN,NaN,"[None, 75, 75, 3]",16875,0
+b_conv1,Conv2D,"[None, 75, 75, 3]",1,float32,331,"[5, 5]",relu,True,"[None, 75, 75, 331]",1861875,25156
+bn_conv1,BatchNormalization,"[None, 75, 75, 331]",1861875,float32,NaN,NaN,NaN,NaN,"[None, 75, 75, 331]",1861875,1324
+b_conv2,Conv2D,"[None, 75, 75, 331]",1861875,float32,68,"[5, 5]",relu,True,"[None, 75, 75, 68]",382500,562768
+b_conv3,Conv2D,"[None, 75, 75, 68]",382500,float32,56,"[5, 5]",relu,True,"[None, 75, 75, 56]",315000,95256
+b_conv4,Conv2D,"[None, 75, 75, 56]",315000,float32,400,"[5, 5]",relu,True,"[None, 75, 75, 400]",2250000,560400
+bn_conv4,BatchNormalization,"[None, 75, 75, 400]",2250000,float32,NaN,NaN,NaN,NaN,"[None, 75, 75, 400]",2250000,1600
+b_conv5,Conv2D,"[None, 75, 75, 400]",2250000,float32,96,"[2, 2]",relu,True,"[None, 75, 75, 96]",540000,153696
+b_max_pool5,MaxPooling2D,"[None, 75, 75, 96]",540000,float32,NaN,NaN,NaN,NaN,"[None, 15, 15, 96]",21600,0
+flatten,Flatten,"[None, 15, 15, 96]",21600,float32,NaN,NaN,NaN,NaN,"[None, 21600]",21600,0
+fc,Dense,"[None, 21600]",21600,float32,NaN,NaN,linear,True,"[None, 100]",100,2160100
+softmax,Activation,"[None, 100]",100,float32,NaN,NaN,softmax,NaN,"[None, 100]",100,0

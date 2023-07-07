@@ -1,0 +1,24 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 800, 800, 3]",1920000,float32,NaN,NaN,NaN,NaN,"[None, 800, 800, 3]",1920000,0
+b_conv1,Conv2D,"[None, 800, 800, 3]",1,float32,500,"[1, 1]",relu,True,"[None, 800, 800, 500]",320000000,2000
+b_max_pool1,MaxPooling2D,"[None, 800, 800, 500]",320000000,float32,NaN,NaN,NaN,NaN,"[None, 267, 267, 500]",35644500,0
+b_conv2,Conv2D,"[None, 267, 267, 500]",35644500,float32,112,"[5, 5]",relu,True,"[None, 267, 267, 112]",7984368,1400112
+bn_conv2,BatchNormalization,"[None, 267, 267, 112]",7984368,float32,NaN,NaN,NaN,NaN,"[None, 267, 267, 112]",7984368,448
+b_conv3,Conv2D,"[None, 267, 267, 112]",7984368,float32,320,"[1, 1]",relu,True,"[None, 267, 267, 320]",22812480,36160
+b_conv4,Conv2D,"[None, 267, 267, 320]",22812480,float32,100,"[1, 1]",relu,True,"[None, 267, 267, 100]",7128900,32100
+bn_conv4,BatchNormalization,"[None, 267, 267, 100]",7128900,float32,NaN,NaN,NaN,NaN,"[None, 267, 267, 100]",7128900,400
+b_conv5,Conv2D,"[None, 267, 267, 100]",7128900,float32,450,"[3, 3]",relu,True,"[None, 267, 267, 450]",32080050,405450
+b_max_pool5,MaxPooling2D,"[None, 267, 267, 450]",32080050,float32,NaN,NaN,NaN,NaN,"[None, 67, 67, 450]",2020050,0
+b_conv6,Conv2D,"[None, 67, 67, 450]",2020050,float32,160,"[3, 3]",relu,True,"[None, 67, 67, 160]",718240,648160
+b_conv7,Conv2D,"[None, 67, 67, 160]",718240,float32,64,"[2, 2]",relu,True,"[None, 67, 67, 64]",287296,41024
+bn_conv7,BatchNormalization,"[None, 67, 67, 64]",287296,float32,NaN,NaN,NaN,NaN,"[None, 67, 67, 64]",287296,256
+b_conv8,Conv2D,"[None, 67, 67, 64]",287296,float32,40,"[5, 5]",relu,True,"[None, 67, 67, 40]",179560,64040
+b_conv9,Conv2D,"[None, 67, 67, 40]",179560,float32,68,"[2, 2]",relu,True,"[None, 67, 67, 68]",305252,10948
+b_max_pool9,MaxPooling2D,"[None, 67, 67, 68]",305252,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 68]",13328,0
+b_conv10,Conv2D,"[None, 14, 14, 68]",13328,float32,120,"[3, 3]",relu,True,"[None, 14, 14, 120]",23520,73560
+b_conv11,Conv2D,"[None, 14, 14, 120]",23520,float32,224,"[5, 5]",relu,True,"[None, 14, 14, 224]",43904,672224
+b_conv12,Conv2D,"[None, 14, 14, 224]",43904,float32,8,"[5, 5]",relu,True,"[None, 14, 14, 8]",1568,44808
+bn_conv12,BatchNormalization,"[None, 14, 14, 8]",1568,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 8]",1568,32
+global_pool,GlobalAveragePooling2D,"[None, 14, 14, 8]",1568,float32,NaN,NaN,NaN,NaN,"[None, 8]",8,0
+fc,Dense,"[None, 8]",8,float32,NaN,NaN,linear,True,"[None, 100]",100,900
+softmax,Activation,"[None, 100]",100,float32,NaN,NaN,softmax,NaN,"[None, 100]",100,0

@@ -1,0 +1,22 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 90, 90, 3]",24300,float32,NaN,NaN,NaN,NaN,"[None, 90, 90, 3]",24300,0
+b_conv1,Conv2D,"[None, 90, 90, 3]",1,float32,68,"[1, 1]",relu,True,"[None, 90, 90, 68]",550800,272
+b_max_pool1,MaxPooling2D,"[None, 90, 90, 68]",550800,float32,NaN,NaN,NaN,NaN,"[None, 89, 89, 68]",538628,0
+b_conv2,Conv2D,"[None, 89, 89, 68]",538628,float32,384,"[3, 3]",relu,True,"[None, 89, 89, 384]",3041664,235392
+bn_conv2,BatchNormalization,"[None, 89, 89, 384]",3041664,float32,NaN,NaN,NaN,NaN,"[None, 89, 89, 384]",3041664,1536
+b_conv3,Conv2D,"[None, 89, 89, 384]",3041664,float32,144,"[2, 2]",relu,True,"[None, 89, 89, 144]",1140624,221328
+bn_conv3,BatchNormalization,"[None, 89, 89, 144]",1140624,float32,NaN,NaN,NaN,NaN,"[None, 89, 89, 144]",1140624,576
+b_conv4,Conv2D,"[None, 89, 89, 144]",1140624,float32,300,"[1, 1]",relu,True,"[None, 89, 89, 300]",2376300,43500
+bn_conv4,BatchNormalization,"[None, 89, 89, 300]",2376300,float32,NaN,NaN,NaN,NaN,"[None, 89, 89, 300]",2376300,1200
+b_conv5,Conv2D,"[None, 89, 89, 300]",2376300,float32,384,"[1, 1]",relu,True,"[None, 89, 89, 384]",3041664,115584
+b_max_pool5,MaxPooling2D,"[None, 89, 89, 384]",3041664,float32,NaN,NaN,NaN,NaN,"[None, 44, 44, 384]",743424,0
+b_conv6,Conv2D,"[None, 44, 44, 384]",743424,float32,500,"[5, 5]",relu,True,"[None, 44, 44, 500]",968000,4800500
+b_conv7,Conv2D,"[None, 44, 44, 500]",968000,float32,16,"[5, 5]",relu,True,"[None, 44, 44, 16]",30976,200016
+bn_conv7,BatchNormalization,"[None, 44, 44, 16]",30976,float32,NaN,NaN,NaN,NaN,"[None, 44, 44, 16]",30976,64
+b_conv8,Conv2D,"[None, 44, 44, 16]",30976,float32,144,"[3, 3]",relu,True,"[None, 44, 44, 144]",278784,20880
+bn_conv8,BatchNormalization,"[None, 44, 44, 144]",278784,float32,NaN,NaN,NaN,NaN,"[None, 44, 44, 144]",278784,576
+b_conv9,Conv2D,"[None, 44, 44, 144]",278784,float32,48,"[2, 2]",relu,True,"[None, 44, 44, 48]",92928,27696
+b_max_pool9,MaxPooling2D,"[None, 44, 44, 48]",92928,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,0
+global_pool,GlobalAveragePooling2D,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 48]",48,0
+fc,Dense,"[None, 48]",48,float32,NaN,NaN,linear,True,"[None, 500]",500,24500
+softmax,Activation,"[None, 500]",500,float32,NaN,NaN,softmax,NaN,"[None, 500]",500,0

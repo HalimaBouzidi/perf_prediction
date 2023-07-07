@@ -1,0 +1,158 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 224, 224, 3]",150528,float32,NaN,NaN,NaN,NaN,"[None, 224, 224, 3]",150528,0
+Conv1_pad,ZeroPadding2D,"[None, 224, 224, 3]",1,float32,NaN,NaN,NaN,NaN,"[None, 225, 225, 3]",151875,0
+Conv1,Conv2D,"[None, 225, 225, 3]",151875,float32,16,"[3, 3]",linear,False,"[None, 112, 112, 16]",200704,432
+bn_Conv1,BatchNormalization,"[None, 112, 112, 16]",200704,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 16]",200704,64
+Conv1_relu,ReLU,"[None, 112, 112, 16]",200704,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 16]",200704,0
+expanded_conv_depthwise,DepthwiseConv2D,"[None, 112, 112, 16]",200704,float32,NaN,"[3, 3]",linear,False,"[None, 112, 112, 16]",200704,144
+expanded_conv_depthwise_BN,BatchNormalization,"[None, 112, 112, 16]",200704,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 16]",200704,64
+expanded_conv_depthwise_relu,ReLU,"[None, 112, 112, 16]",200704,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 16]",200704,0
+expanded_conv_project,Conv2D,"[None, 112, 112, 16]",200704,float32,8,"[1, 1]",linear,False,"[None, 112, 112, 8]",100352,128
+expanded_conv_project_BN,BatchNormalization,"[None, 112, 112, 8]",100352,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 8]",100352,32
+block_1_expand,Conv2D,"[None, 112, 112, 8]",100352,float32,48,"[1, 1]",linear,False,"[None, 112, 112, 48]",602112,384
+block_1_expand_BN,BatchNormalization,"[None, 112, 112, 48]",602112,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 48]",602112,192
+block_1_expand_relu,ReLU,"[None, 112, 112, 48]",602112,float32,NaN,NaN,NaN,NaN,"[None, 112, 112, 48]",602112,0
+block_1_pad,ZeroPadding2D,"[None, 112, 112, 48]",602112,float32,NaN,NaN,NaN,NaN,"[None, 113, 113, 48]",612912,0
+block_1_depthwise,DepthwiseConv2D,"[None, 113, 113, 48]",612912,float32,NaN,"[3, 3]",linear,False,"[None, 56, 56, 48]",150528,432
+block_1_depthwise_BN,BatchNormalization,"[None, 56, 56, 48]",150528,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 48]",150528,192
+block_1_depthwise_relu,ReLU,"[None, 56, 56, 48]",150528,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 48]",150528,0
+block_1_project,Conv2D,"[None, 56, 56, 48]",150528,float32,16,"[1, 1]",linear,False,"[None, 56, 56, 16]",50176,768
+block_1_project_BN,BatchNormalization,"[None, 56, 56, 16]",50176,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 16]",50176,64
+block_2_expand,Conv2D,"[None, 56, 56, 16]",50176,float32,96,"[1, 1]",linear,False,"[None, 56, 56, 96]",301056,1536
+block_2_expand_BN,BatchNormalization,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,384
+block_2_expand_relu,ReLU,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,0
+block_2_depthwise,DepthwiseConv2D,"[None, 56, 56, 96]",301056,float32,NaN,"[3, 3]",linear,False,"[None, 56, 56, 96]",301056,864
+block_2_depthwise_BN,BatchNormalization,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,384
+block_2_depthwise_relu,ReLU,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,0
+block_2_project,Conv2D,"[None, 56, 56, 96]",301056,float32,16,"[1, 1]",linear,False,"[None, 56, 56, 16]",50176,1536
+block_2_project_BN,BatchNormalization,"[None, 56, 56, 16]",50176,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 16]",50176,64
+block_2_add,Add,"[None, 56, 56, 16]",50176,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 16]",50176,0
+block_3_expand,Conv2D,"[None, 56, 56, 16]",50176,float32,96,"[1, 1]",linear,False,"[None, 56, 56, 96]",301056,1536
+block_3_expand_BN,BatchNormalization,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,384
+block_3_expand_relu,ReLU,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 56, 56, 96]",301056,0
+block_3_pad,ZeroPadding2D,"[None, 56, 56, 96]",301056,float32,NaN,NaN,NaN,NaN,"[None, 57, 57, 96]",311904,0
+block_3_depthwise,DepthwiseConv2D,"[None, 57, 57, 96]",311904,float32,NaN,"[3, 3]",linear,False,"[None, 28, 28, 96]",75264,864
+block_3_depthwise_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_3_depthwise_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_3_project,Conv2D,"[None, 28, 28, 96]",75264,float32,16,"[1, 1]",linear,False,"[None, 28, 28, 16]",12544,1536
+block_3_project_BN,BatchNormalization,"[None, 28, 28, 16]",12544,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 16]",12544,64
+block_4_expand,Conv2D,"[None, 28, 28, 16]",12544,float32,96,"[1, 1]",linear,False,"[None, 28, 28, 96]",75264,1536
+block_4_expand_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_4_expand_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_4_depthwise,DepthwiseConv2D,"[None, 28, 28, 96]",75264,float32,NaN,"[3, 3]",linear,False,"[None, 28, 28, 96]",75264,864
+block_4_depthwise_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_4_depthwise_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_4_project,Conv2D,"[None, 28, 28, 96]",75264,float32,16,"[1, 1]",linear,False,"[None, 28, 28, 16]",12544,1536
+block_4_project_BN,BatchNormalization,"[None, 28, 28, 16]",12544,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 16]",12544,64
+block_4_add,Add,"[None, 28, 28, 16]",12544,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 16]",12544,0
+block_5_expand,Conv2D,"[None, 28, 28, 16]",12544,float32,96,"[1, 1]",linear,False,"[None, 28, 28, 96]",75264,1536
+block_5_expand_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_5_expand_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_5_depthwise,DepthwiseConv2D,"[None, 28, 28, 96]",75264,float32,NaN,"[3, 3]",linear,False,"[None, 28, 28, 96]",75264,864
+block_5_depthwise_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_5_depthwise_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_5_project,Conv2D,"[None, 28, 28, 96]",75264,float32,16,"[1, 1]",linear,False,"[None, 28, 28, 16]",12544,1536
+block_5_project_BN,BatchNormalization,"[None, 28, 28, 16]",12544,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 16]",12544,64
+block_5_add,Add,"[None, 28, 28, 16]",12544,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 16]",12544,0
+block_6_expand,Conv2D,"[None, 28, 28, 16]",12544,float32,96,"[1, 1]",linear,False,"[None, 28, 28, 96]",75264,1536
+block_6_expand_BN,BatchNormalization,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,384
+block_6_expand_relu,ReLU,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 28, 28, 96]",75264,0
+block_6_pad,ZeroPadding2D,"[None, 28, 28, 96]",75264,float32,NaN,NaN,NaN,NaN,"[None, 29, 29, 96]",80736,0
+block_6_depthwise,DepthwiseConv2D,"[None, 29, 29, 96]",80736,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 96]",18816,864
+block_6_depthwise_BN,BatchNormalization,"[None, 14, 14, 96]",18816,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 96]",18816,384
+block_6_depthwise_relu,ReLU,"[None, 14, 14, 96]",18816,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 96]",18816,0
+block_6_project,Conv2D,"[None, 14, 14, 96]",18816,float32,32,"[1, 1]",linear,False,"[None, 14, 14, 32]",6272,3072
+block_6_project_BN,BatchNormalization,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,128
+block_7_expand,Conv2D,"[None, 14, 14, 32]",6272,float32,192,"[1, 1]",linear,False,"[None, 14, 14, 192]",37632,6144
+block_7_expand_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_7_expand_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_7_depthwise,DepthwiseConv2D,"[None, 14, 14, 192]",37632,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 192]",37632,1728
+block_7_depthwise_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_7_depthwise_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_7_project,Conv2D,"[None, 14, 14, 192]",37632,float32,32,"[1, 1]",linear,False,"[None, 14, 14, 32]",6272,6144
+block_7_project_BN,BatchNormalization,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,128
+block_7_add,Add,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,0
+block_8_expand,Conv2D,"[None, 14, 14, 32]",6272,float32,192,"[1, 1]",linear,False,"[None, 14, 14, 192]",37632,6144
+block_8_expand_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_8_expand_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_8_depthwise,DepthwiseConv2D,"[None, 14, 14, 192]",37632,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 192]",37632,1728
+block_8_depthwise_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_8_depthwise_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_8_project,Conv2D,"[None, 14, 14, 192]",37632,float32,32,"[1, 1]",linear,False,"[None, 14, 14, 32]",6272,6144
+block_8_project_BN,BatchNormalization,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,128
+block_8_add,Add,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,0
+block_9_expand,Conv2D,"[None, 14, 14, 32]",6272,float32,192,"[1, 1]",linear,False,"[None, 14, 14, 192]",37632,6144
+block_9_expand_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_9_expand_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_9_depthwise,DepthwiseConv2D,"[None, 14, 14, 192]",37632,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 192]",37632,1728
+block_9_depthwise_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_9_depthwise_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_9_project,Conv2D,"[None, 14, 14, 192]",37632,float32,32,"[1, 1]",linear,False,"[None, 14, 14, 32]",6272,6144
+block_9_project_BN,BatchNormalization,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,128
+block_9_add,Add,"[None, 14, 14, 32]",6272,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 32]",6272,0
+block_10_expand,Conv2D,"[None, 14, 14, 32]",6272,float32,192,"[1, 1]",linear,False,"[None, 14, 14, 192]",37632,6144
+block_10_expand_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_10_expand_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_10_depthwise,DepthwiseConv2D,"[None, 14, 14, 192]",37632,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 192]",37632,1728
+block_10_depthwise_BN,BatchNormalization,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,768
+block_10_depthwise_relu,ReLU,"[None, 14, 14, 192]",37632,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 192]",37632,0
+block_10_project,Conv2D,"[None, 14, 14, 192]",37632,float32,48,"[1, 1]",linear,False,"[None, 14, 14, 48]",9408,9216
+block_10_project_BN,BatchNormalization,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,192
+block_11_expand,Conv2D,"[None, 14, 14, 48]",9408,float32,288,"[1, 1]",linear,False,"[None, 14, 14, 288]",56448,13824
+block_11_expand_BN,BatchNormalization,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,1152
+block_11_expand_relu,ReLU,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,0
+block_11_depthwise,DepthwiseConv2D,"[None, 14, 14, 288]",56448,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 288]",56448,2592
+block_11_depthwise_BN,BatchNormalization,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,1152
+block_11_depthwise_relu,ReLU,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,0
+block_11_project,Conv2D,"[None, 14, 14, 288]",56448,float32,48,"[1, 1]",linear,False,"[None, 14, 14, 48]",9408,13824
+block_11_project_BN,BatchNormalization,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,192
+block_11_add,Add,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,0
+block_12_expand,Conv2D,"[None, 14, 14, 48]",9408,float32,288,"[1, 1]",linear,False,"[None, 14, 14, 288]",56448,13824
+block_12_expand_BN,BatchNormalization,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,1152
+block_12_expand_relu,ReLU,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,0
+block_12_depthwise,DepthwiseConv2D,"[None, 14, 14, 288]",56448,float32,NaN,"[3, 3]",linear,False,"[None, 14, 14, 288]",56448,2592
+block_12_depthwise_BN,BatchNormalization,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,1152
+block_12_depthwise_relu,ReLU,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,0
+block_12_project,Conv2D,"[None, 14, 14, 288]",56448,float32,48,"[1, 1]",linear,False,"[None, 14, 14, 48]",9408,13824
+block_12_project_BN,BatchNormalization,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,192
+block_12_add,Add,"[None, 14, 14, 48]",9408,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 48]",9408,0
+block_13_expand,Conv2D,"[None, 14, 14, 48]",9408,float32,288,"[1, 1]",linear,False,"[None, 14, 14, 288]",56448,13824
+block_13_expand_BN,BatchNormalization,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,1152
+block_13_expand_relu,ReLU,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 14, 14, 288]",56448,0
+block_13_pad,ZeroPadding2D,"[None, 14, 14, 288]",56448,float32,NaN,NaN,NaN,NaN,"[None, 15, 15, 288]",64800,0
+block_13_depthwise,DepthwiseConv2D,"[None, 15, 15, 288]",64800,float32,NaN,"[3, 3]",linear,False,"[None, 7, 7, 288]",14112,2592
+block_13_depthwise_BN,BatchNormalization,"[None, 7, 7, 288]",14112,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 288]",14112,1152
+block_13_depthwise_relu,ReLU,"[None, 7, 7, 288]",14112,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 288]",14112,0
+block_13_project,Conv2D,"[None, 7, 7, 288]",14112,float32,80,"[1, 1]",linear,False,"[None, 7, 7, 80]",3920,23040
+block_13_project_BN,BatchNormalization,"[None, 7, 7, 80]",3920,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 80]",3920,320
+block_14_expand,Conv2D,"[None, 7, 7, 80]",3920,float32,480,"[1, 1]",linear,False,"[None, 7, 7, 480]",23520,38400
+block_14_expand_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_14_expand_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_14_depthwise,DepthwiseConv2D,"[None, 7, 7, 480]",23520,float32,NaN,"[3, 3]",linear,False,"[None, 7, 7, 480]",23520,4320
+block_14_depthwise_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_14_depthwise_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_14_project,Conv2D,"[None, 7, 7, 480]",23520,float32,80,"[1, 1]",linear,False,"[None, 7, 7, 80]",3920,38400
+block_14_project_BN,BatchNormalization,"[None, 7, 7, 80]",3920,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 80]",3920,320
+block_14_add,Add,"[None, 7, 7, 80]",3920,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 80]",3920,0
+block_15_expand,Conv2D,"[None, 7, 7, 80]",3920,float32,480,"[1, 1]",linear,False,"[None, 7, 7, 480]",23520,38400
+block_15_expand_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_15_expand_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_15_depthwise,DepthwiseConv2D,"[None, 7, 7, 480]",23520,float32,NaN,"[3, 3]",linear,False,"[None, 7, 7, 480]",23520,4320
+block_15_depthwise_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_15_depthwise_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_15_project,Conv2D,"[None, 7, 7, 480]",23520,float32,80,"[1, 1]",linear,False,"[None, 7, 7, 80]",3920,38400
+block_15_project_BN,BatchNormalization,"[None, 7, 7, 80]",3920,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 80]",3920,320
+block_15_add,Add,"[None, 7, 7, 80]",3920,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 80]",3920,0
+block_16_expand,Conv2D,"[None, 7, 7, 80]",3920,float32,480,"[1, 1]",linear,False,"[None, 7, 7, 480]",23520,38400
+block_16_expand_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_16_expand_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_16_depthwise,DepthwiseConv2D,"[None, 7, 7, 480]",23520,float32,NaN,"[3, 3]",linear,False,"[None, 7, 7, 480]",23520,4320
+block_16_depthwise_BN,BatchNormalization,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,1920
+block_16_depthwise_relu,ReLU,"[None, 7, 7, 480]",23520,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 480]",23520,0
+block_16_project,Conv2D,"[None, 7, 7, 480]",23520,float32,160,"[1, 1]",linear,False,"[None, 7, 7, 160]",7840,76800
+block_16_project_BN,BatchNormalization,"[None, 7, 7, 160]",7840,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 160]",7840,640
+Conv_1,Conv2D,"[None, 7, 7, 160]",7840,float32,1280,"[1, 1]",linear,False,"[None, 7, 7, 1280]",62720,204800
+Conv_1_bn,BatchNormalization,"[None, 7, 7, 1280]",62720,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 1280]",62720,5120
+out_relu,ReLU,"[None, 7, 7, 1280]",62720,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 1280]",62720,0
+global_average_pooling2d_1,GlobalAveragePooling2D,"[None, 7, 7, 1280]",62720,float32,NaN,NaN,NaN,NaN,"[None, 1280]",1280,0
+Logits,Dense,"[None, 1280]",1280,float32,NaN,NaN,softmax,True,"[None, 1000]",1000,1281000

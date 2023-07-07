@@ -1,0 +1,15 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 720, 720, 3]",1555200,float32,NaN,NaN,NaN,NaN,"[None, 720, 720, 3]",1555200,0
+b_conv1,Conv2D,"[None, 720, 720, 3]",1,float32,450,"[5, 5]",relu,True,"[None, 720, 720, 450]",233280000,34200
+b_max_pool1,MaxPooling2D,"[None, 720, 720, 450]",233280000,float32,NaN,NaN,NaN,NaN,"[None, 719, 719, 450]",232632450,0
+b_conv2,Conv2D,"[None, 719, 719, 450]",232632450,float32,384,"[1, 1]",relu,True,"[None, 719, 719, 384]",198513024,173184
+bn_conv2,BatchNormalization,"[None, 719, 719, 384]",198513024,float32,NaN,NaN,NaN,NaN,"[None, 719, 719, 384]",198513024,1536
+b_conv3,Conv2D,"[None, 719, 719, 384]",198513024,float32,120,"[1, 1]",relu,True,"[None, 719, 719, 120]",62035320,46200
+bn_conv3,BatchNormalization,"[None, 719, 719, 120]",62035320,float32,NaN,NaN,NaN,NaN,"[None, 719, 719, 120]",62035320,480
+b_conv4,Conv2D,"[None, 719, 719, 120]",62035320,float32,64,"[3, 3]",relu,True,"[None, 719, 719, 64]",33085504,69184
+bn_conv4,BatchNormalization,"[None, 719, 719, 64]",33085504,float32,NaN,NaN,NaN,NaN,"[None, 719, 719, 64]",33085504,256
+b_conv5,Conv2D,"[None, 719, 719, 64]",33085504,float32,160,"[1, 1]",relu,True,"[None, 719, 719, 160]",82713760,10400
+b_max_pool5,MaxPooling2D,"[None, 719, 719, 160]",82713760,float32,NaN,NaN,NaN,NaN,"[None, 359, 359, 160]",20620960,0
+global_pool,GlobalMaxPooling2D,"[None, 359, 359, 160]",20620960,float32,NaN,NaN,NaN,NaN,"[None, 160]",160,0
+fc,Dense,"[None, 160]",160,float32,NaN,NaN,linear,True,"[None, 200]",200,32200
+softmax,Activation,"[None, 200]",200,float32,NaN,NaN,softmax,NaN,"[None, 200]",200,0

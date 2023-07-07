@@ -1,0 +1,14 @@
+layer_name,class_name,input_shape,activation_in_size,d_type,Filters,Filter_size,Activ_fun,use_B,output_shape,activation_out_size,Params
+input_1,InputLayer,"[None, 64, 64, 3]",12288,float32,NaN,NaN,NaN,NaN,"[None, 64, 64, 3]",12288,0
+block1_conv1,Conv2D,"[None, 64, 64, 3]",1,float32,64,"[11, 11]",relu,True,"[None, 64, 64, 64]",262144,23296
+block1_pool,MaxPooling2D,"[None, 64, 64, 64]",262144,float32,NaN,NaN,NaN,NaN,"[None, 31, 31, 64]",61504,0
+block2_conv1,Conv2D,"[None, 31, 31, 64]",61504,float32,128,"[11, 11]",relu,True,"[None, 31, 31, 128]",123008,991360
+block2_pool,MaxPooling2D,"[None, 31, 31, 128]",123008,float32,NaN,NaN,NaN,NaN,"[None, 15, 15, 128]",28800,0
+block3_conv1,Conv2D,"[None, 15, 15, 128]",28800,float32,256,"[11, 11]",relu,True,"[None, 15, 15, 256]",57600,3965184
+block3_pool,MaxPooling2D,"[None, 15, 15, 256]",57600,float32,NaN,NaN,NaN,NaN,"[None, 7, 7, 256]",12544,0
+block4_conv1,Conv2D,"[None, 7, 7, 256]",12544,float32,512,"[11, 11]",relu,True,"[None, 7, 7, 512]",25088,15860224
+block4_pool,MaxPooling2D,"[None, 7, 7, 512]",25088,float32,NaN,NaN,NaN,NaN,"[None, 3, 3, 512]",4608,0
+flatten,Flatten,"[None, 3, 3, 512]",4608,float32,NaN,NaN,NaN,NaN,"[None, 4608]",4608,0
+fc1,Dense,"[None, 4608]",4608,float32,NaN,NaN,relu,True,"[None, 2048]",2048,9439232
+fc2,Dense,"[None, 2048]",2048,float32,NaN,NaN,relu,True,"[None, 2048]",2048,4196352
+predictions,Dense,"[None, 2048]",2048,float32,NaN,NaN,softmax,True,"[None, 1000]",1000,2049000
